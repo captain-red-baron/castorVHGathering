@@ -1,0 +1,3 @@
+Cython==0.29
+ez-setup==0.9
+pymssql==2.1.4
