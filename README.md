@@ -27,12 +27,12 @@ If you have already a MS SQL Server running, you can skip this step and modify t
 This is building up on the MS SQL Docker image we set up in the step before.
 
 1. Connect to the container `sudo docker exec -it sqlCastor "bash"`
-1. Once inside run sqlcmd: `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<CastorVH!Passw0rd>'`
-1. Create the Database we are about to use: `CREATE DATABASE CastorVH`, `SELECT Name from sys.Databases`, `GO`should show you the created database 
+1. Once inside run sqlcmd cli: `/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<CastorVH!Passw0rd>'`
+1. Create the Database we are about to use: `CREATE DATABASE castor`, `SELECT Name from sys.Databases`, `GO`should show you the created database 
 
-1. To get programmatically to the MS SQL instance, we need to install `brew install freetds` (only on mac, unix and windows should be good with just installing requirements)
+Now we should be able to connect to the MS SQL instance. If you are using a mac you need to do the following additionally:
+1. install `brew install freetds` (only on mac, unix and windows should be good with just installing requirements)
 
+Once the setup is done, we are running the `dll_statements.sql`, `college_seed.sql` and the `immunization_seed.sql` files with to seed the data. These files have been renamed from the original files:
 
-
-1. Connect to the database with `sudo docker exec -it sqlCastor "bash"`
-1. The sqlcmd cli should open up. 
+1. `python3 database/seed_db.py`. Make sure that the `castorvh-env` virtual environment is activated.
